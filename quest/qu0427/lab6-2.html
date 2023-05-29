@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.2</title>
+</head>
+<body>
+    <script>
+        var score;
+        score = prompt("점수를 입력하세요");
+        function grade(score){ //매개변수 score을 가지는 함수
+            if (score >= 90) //각 점수대에 맞춰 return
+                return "A";
+            else if (score >= 80)
+                return "B";
+            else if (score >= 70)
+                return "C";
+            else if (score >= 60)
+                return "D";
+            else
+                return "F";
+        }
+        gr = grade(score); //score을 인수로 하여 호출한 값을 gr에 저장
+        document.write("<h3>입력한 점수 "+score+"는 "+gr+"학점입니다.</h3>");
+    </script>
+</body>
+</html>

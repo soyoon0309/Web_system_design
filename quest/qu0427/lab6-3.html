@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.3</title>
+</head>
+<body>
+    <script>
+        let msg, count;
+        msg = prompt("반복할 메세지를 입력하시오.");
+        count = prompt("몇 번 반복할까요?");
+        let messages = function(msg, count){
+            var mesg = ""; //지역변수 mesg를 선언해서 반복한 메세지를 저장
+            for (let i = 0; i < count; i++){
+                mesg = mesg + msg +"<br>" + "<br>"; // 2줄 띄어쓰기
+            }
+            return mesg; // 저장한 반복 메세지를 return
+        }
+        document.write(messages(msg, count));
+    </script>
+</body>
+</html>

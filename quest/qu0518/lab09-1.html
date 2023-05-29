@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>09-1</title>
+</head>
+<body>
+    <canvas id="myCanvas" style="background-color: aliceblue;" width="500" height="500"></canvas>
+    <script>
+        let canvas = document.getElementById("myCanvas")
+        let context = canvas.getContext("2d");
+
+        for (let i=0; i<10; i++){
+            let colorcode = "#"+Math.round(Math.random()*0xffffff).toString(16); 
+            context.beginPath();
+            context.strokeStyle = colorcode;
+            context.arc(250, 250, 30+i*10, 2*Math.PI, false);   
+            context.stroke();         
+        }
+    </script>
+</body>
+</html>

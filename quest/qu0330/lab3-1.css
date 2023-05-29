@@ -1,0 +1,60 @@
+body {
+    width: 800px;
+    margin: 20px auto;
+}
+.img {
+    width: 100%;
+    height: 400px;
+    background: url(dog.jpg) no-repeat center top;
+}
+#centering {
+    text-align: center;
+}
+.navi ul {
+    list-style: none;
+}
+.navi ul li {
+    float: left;
+    margin: 30px 30px;
+}
+.navi a:link, .navi a:visited {
+    display: block;
+    padding: 10px 20px;
+    background-color: chocolate;
+    color: bisque;
+    text-decoration: none;
+}
+.navi a:hover {
+    background-color: bisque;
+    color: chocolate;
+}
+.navi a:active {
+    background-color: brown;
+    color: bisque;
+}
+section article h3 {
+    text-align: center;
+    line-height: 1.5em;
+    color: white;
+    background: radial-gradient(circle, rgb(172, 119, 40), white)
+}
+#at1, #at2, #at3, #at4{
+    float: left;
+    width: 350px;
+    height: 250px;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid chocolate;
+    border-radius: 10px;
+}
+#at1:target, #at2:target, #at3:target, #at4:target {
+    background-color: bisque;
+    border-color: brown;
+}
+section footer {
+    clear: left;
+    background-color: black;
+    color: white;
+    text-align: center;
+    line-height: 40px;
+}

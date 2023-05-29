@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07-5-2</title>
+</head>
+<body>
+    <h1>이동할 페이지 목록</h1>
+    <ul>
+        <li><a href="lab07-1.html" onclick="loadURL(this.href);return false;">실습1</a></li>
+        <li><a href="lab07-2.html" onclick="loadURL(this.href);return false;">실습2</a></li>
+        <li><a href="lab07-3.html" onclick="loadURL(this.href);return false;">실습3</a></li>
+        <li><a href="lab07-4.html" onclick="loadURL(this.href);return false;">실습4</a></li>
+    </ul>
+    <script>
+        function loadURL(url){
+            window.opener.location = url; //부모창의 location에 url을 넘겨줌
+        }
+    </script>
+</body>
+</html>

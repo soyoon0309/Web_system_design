@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07-3</title>
+    <style>
+        #container {
+            margin: 50px auto;
+            width: 400px;
+            height: 300px;
+            border-radius: 10%;
+            border: 2px double #d8f0fc;
+            background-color: #d8f0fc;
+            text-align: center;
+            box-shadow: 2px 2px 3px gray;
+        }
+        h1 {
+            margin-top: 80px;
+        }
+        #make {
+            border-radius: 5%;
+            border: 2px double #d8f0fc;
+            text-align: center;
+            box-shadow: 2px 2px 3px gray;
+            font-size: 1em;
+            font-weight: bold;
+            color: red;
+        }
+
+        .accent {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>로또 번호 생성기</h1>
+        <button id="make">로또 번호 생성하기</button>
+        <p><span class="accent" id="result"></span></p>
+    </div>
+    <script>
+        var makeLt = document.querySelector('#make');
+        makeLt.onclick = LottoMake;
+        function LottoMake(){
+            var lotto = new Array(); //lotto번호를 저장할 배열 생성 (size = 6)
+            let count = 0;
+            while(count < 6){
+                var num = (Math.floor(Math.random() * 45 + 1)); //1~45 사이의 숫자를 소숫점아래 버리고 출력
+                if (lotto.indexOf(num) === -1) {
+                    lotto.push(num);
+                    count += 1;
+                }
+                else
+                    continue
+            }
+             document.querySelector('#result').innerText = lotto.join(', ');
+        }
+
+    </script>
+</body>
+</html>

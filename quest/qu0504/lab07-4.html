@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07-4</title>
+</head>
+<body>
+    <script>
+        function openCenter(doc, win, w, h){
+            var left = (screen.availWidth-w)/2; //팝업창의 왼쪽 좌표
+            var top = (screen.availHeight-h)/2; //팝업창의 위쪽 좌표
+            var opt = "left="+left+",top="+top+",width="+w+",height="+h;
+            window.open(doc, win, opt);
+        }
+        document.write("새로운 창 화면 가운데 띄우기 실습");
+        openCenter("lab07-3-1.html","로또 번호 생성기", 500, 400);
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8-1</title>
+    <style>
+        #text, #bgcolor, #txcolor, #txsize, #reshape {
+         margin: 10px;   
+        }
+        #box1 {
+            width: 200px;
+            height: 200px;
+            background-color:black;
+            color: black;
+        }
+        #retext {
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>DOM 실습</h1>
+    <form>
+        <label for="text">텍스트 내용 입력</label>
+        <input id="text" type="text"><br>
+        <label for="bgcolor">배경색</label>
+        <input id="bgcolor" type="color"><br>
+        <label for="txcolor">글자색</label>
+        <input id="txcolor" type="color"><br>
+        <label for="txsize">글자크기</label>
+        <select id="txsize">
+            <option value="10px">10</option>
+            <option value="15px">15</option>
+            <option value="20px">20</option>
+            <option value="25px">25</option>
+            <option value="30px">30</option>
+        </select><br>
+        <label for="spcir"><input id="spcir" type="radio" value="circle" name="reshape">원</label>
+        <label for="sprec"><input id="sprec" type="radio" value="rect" name="reshape">사각형</label>
+        <label for="spcirec"><input id="spcirec" type="radio" value="cirect" name="reshape">모서리가 둥근 사각형</label>
+    </form>
+        <div id="box1">
+        <p id="retext"></p>
+    </div>
+    <script>
+        document.querySelector("#text").addEventListener("blur", blurevent); //blur 이벤트 발생시
+        document.querySelector("#bgcolor").addEventListener("change", bgcevent); //backgroundcolor 값이 변경되었을 시
+        document.querySelector("#txcolor").addEventListener("change", txcevent); //textcolor 값이 변경되었을 시
+        document.querySelector("#txsize").addEventListener("change", txszevent); //textcolor 값이 변경되었을 시
+        document.querySelector("#spcir").addEventListener("change", spcevent); //shape 값이 변경되었을 시
+        document.querySelector("#sprec").addEventListener("change", sprevent); //shape 값이 변경되었을 시
+        document.querySelector("#spcirec").addEventListener("change", spcrevent); //shape 값이 변경되었을 시
+
+
+        function blurevent(){ //blur 이벤트 발생시 실행할 함수 선언
+          var val = this.value; //입력된 text 가져오기
+          document.querySelector("#retext").innerText = val; //text 표시하기
+        }
+        function bgcevent(){
+            var val = this.value; //입력된 bgcolor 가져오기
+          document.querySelector("#box1").style.backgroundColor = val; //backgroundcolor 변경하기
+        }
+        function txcevent(){
+            var val = this.value; //입력된 txcolor 가져오기
+          document.querySelector("#box1").style.color = val; //textcolor 변경하기
+        }
+        function txszevent(){
+            var val = this.options[this.selectedIndex].value; //입력된 txsize 가져오기
+          document.querySelector("#box1").style.fontSize = val; //textsize 변경하기
+        }
+        function spcevent(){
+            document.querySelector("#box1").style.borderRadius = "50%"; //borderRadius 변경하기
+        }
+        function sprevent(){
+            document.querySelector("#box1").style.borderRadius = "0%"; //borderRadius 변경하기
+        }
+        function spcrevent(){
+            document.querySelector("#box1").style.borderRadius = "15%"; //borderRadius 변경하기
+        }
+      </script>
+
+</body>
+</html>

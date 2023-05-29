@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.4</title>
+</head>
+<body>
+    <script>
+        let name, age, cm, kg, calc;
+        name = prompt("이름을 입력하시오.");
+        age = prompt("나이를 입력하시오.(숫자)");
+        cm = prompt("키를 입력하시오.(숫자)");
+        kg = prompt("체중을 입력하시오.(숫자)");
+
+        bmi = function () {
+            var calc = kg/(cm*0.01*cm*0.01);
+            if (calc >30)
+                return "비만";
+            if (age > 29 && age <40){
+            if (calc >24)
+                return "과체중";
+            else if (calc > 18.4)
+                return "표준체중";
+            else
+                return "저체중";
+            }
+            else if (age >19 && age < 30){
+                if (calc >23)
+                return "과체중";
+            else if (calc > 17.9)
+                return "표준체중";
+            else
+                return "저체중";
+            }
+            else{
+                alert("20대와 30대의 비만도만 측정 가능합니다.");
+                return "None";
+            }
+        }
+         // 추후 bmi 계산 값을 return하는 변수로 사용
+        document.write("<h3>이름: "+name + "</h3>"); //이름
+        document.write("<h3>나이: "+age + "</h3>"); //나이
+        document.write("<h3>키: "+cm + "</h3>"); //키
+        document.write("<h3>체중: "+kg + "</h3>"); //체중
+        document.write("<h3>당신은 "+bmi() + "입니다.</h3>"); //비만도
+    </script>
+</body>
+</html>

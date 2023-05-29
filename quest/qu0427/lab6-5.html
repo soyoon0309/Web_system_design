@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.5</title>
+</head>
+<body>
+    <h2 id="click">Click!!!</h2> <!--클릭 할 대상-->
+    <script>
+        let count = 0;
+        document.querySelector('#click').onclick = function(){ //click id를 갖고 있는 대상이 클릭되었을 때 함수 선언
+            count ++;
+            alert("클릭 횟수:"+count);
+        }
+    </script>
+</body>
+</html>

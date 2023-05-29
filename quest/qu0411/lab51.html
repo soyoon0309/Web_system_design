@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lab5</title>
+    <link rel="stylesheet" href="lab5.css"><!--lab5.css 파일 style 사용-->
+</head>
+<body>
+    <div id="wrapper">
+    <header class="boxheader">
+        <div id="headtitle">
+            <h1>제빵왕 김눈송</h1>
+            <h3>쿠키부터 케이크까지</h3>
+        </div>
+            <nav class="navi">
+            <ul>
+                <li>
+                    <a href="#sat1"><b>레시피</b></a>
+                    <ul class="submenu">
+                        <li>쿠키/스콘 레시피</li>
+                        <li>빵/샌드위치 레시피</li>
+                        <li>케이크 레시피</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#sat2"><b>자격증</b></a>
+                    <ul class="submenu">
+                        <li>제과제빵 준비중</li>
+                        <li>합격 인증</li>
+                        <li>질문있어요</li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#sat3"><b>도구추천/꿀팁</b></a>
+                    <ul class="submenu">
+                        <li>도구 추천</li>
+                        <li>도구 공동구매</li>
+                        <li>꿀팁 드려요</li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <aside class="raside">
+            <article id="rat1">
+                <h4>광고</h4>
+                <p>가정용 직화 오븐</p>
+                <img id="image" src='oven.jpg' alt="오븐 사진 광고" width="120">
+            </article>
+            <article id="rat2">
+                <h4>공구합니다</h4>
+                <p>마다가스카르산 <br>바닐라빈 공구해서 <br>싸게 가져가요~</p>
+                <img id="image" src='beans.jpg' alt="바닐라빈" width="120">
+            </article>
+        </aside>
+        <aside class="laside">
+            <form action="" id="signup">
+                <div>
+                    <label for="user-id">아이디</label>
+                    <input type="text" id="user-id" size="12"><br>
+                    <label for="user-pw">비밀번호</label>
+                    <input type="password" id="user-pw" size="12"><br>
+                </div>
+                <input type="submit" value="로그인" id="user-login" size="4"> 
+                <!--input형식 = submit, button 위에 적힐 멘트 = value, button size = size-->
+                <input type="submit" value="회원가입" id="user-get" size="4">
+            </form> <!--form tag 안에 있어야 form형식으로 인정-->
+        </aside>
+        <section class="content">
+            <article id="sat1">
+                <h4>초코칩 쿠키 레시피</h4>
+                <img id="image" src='chocolatechip_cookies.jpg' alt="초코칩쿠키">
+                <ol>
+                    <li>버터를 풀어준다.</li>
+                    <li>1에 설탕을 넣고 섞는다.</li>
+                    <li>올리고당을 넣고 섞는다.</li>
+                    <li>계란을 넣고 섞는다.</li>
+                    <li>박력분+코코아가루+베이킹가루를 체쳐넣고 섞는다.</li>
+                    <li>초코칩을 넣고 섞는다.</li>
+                    <li>한 스푼씩 떠서 눌러 모양을 잡아준다.</li>
+                    <li>180도 오븐에서 10~12분간 굽는다.</li>
+                </ol>
+                <p id="source">사진 출처 = "https://blog.naver.com/tongue_tech_/222581612976"</p>
+
+                
+            </article>
+            <article id="sat2">
+                <h4>제과제빵자격증 일정</h4>
+                <table id="datetable">
+                    <caption>2023년 상시 기능사 6회</caption>
+                    <thead>
+                        <tr>
+                            <th>구분</th>
+                            <th>기간</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>필기접수</td>
+                            <td>23.04.06~23.04.07</td>
+                        </tr>
+                        <tr>
+                            <td>필기시험</td>
+                            <td>23.04.18 ~ 23.04.21</td>
+                        </tr>
+                        <tr>
+                            <td>실기접수</td>
+                            <td>23.03.23 ~ 23.03.24</td>
+                        </tr>
+                        <tr>
+                            <td>실기시험</td>
+                            <td>23.04.03 ~ 23.04.14</td>
+                        </tr>
+                        <tr>
+                            <td>최종발표</td>
+                            <td>23.04.20</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+            </article>
+            <article id="sat3">
+                <h4>스콘 만들 때 꿀팁!</h4>
+                <img id="image" src='scone.jpg' alt="스콘">
+                <ol>
+                    <li>버터는 미리 실온에 조금 꺼내두었다 사용하기</li>
+                    <blockquote>미리 꺼내두지 않으면 버터가 딱딱해서 잘 섞이지 않아요</blockquote>
+                    <li>버터가 잘 섞였는지 꼭 확인하기</li>
+                    <blockquote>버터가 잘 섞이지 않을 경우 스콘이 딱딱해져요</blockquote>
+                </ol>
+                <p id="source">사진 출처 = https://blog.naver.com/yeahee030/222882233885</p>
+            </article>
+        </section>
+        <footer>
+            <b><p>Copyright &copy HyunSoyoon. All Rights Reserved.</p></b>
+        </footer>
+    </div>
+</body>
+</html>

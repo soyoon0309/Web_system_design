@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07-1</title>
+</head>
+<body>
+    <script>
+        var date = ["월", "화", "수", "목", "금", "토", "일"];
+        var newdate = date.splice(5); //토,일 삭제 후 새 배열로 반환
+        document.write("<h3>삭제한 값: "+newdate+"</h3>"); //반환 배열 출력
+        document.write("<h3>삭제 이후 결과: "+date+"</h3>"); //기존 배열 변경된 값 출력
+    </script>
+</body>
+</html>

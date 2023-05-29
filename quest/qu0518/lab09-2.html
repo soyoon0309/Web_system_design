@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>09-2</title>
+</head>
+<body onload="init()">
+<h3>마우스를 누른 채 드래깅하여 그림 그려 보세요</h3>
+<hr>
+<label>선색<input type="color" id="linecolor"></label>
+<label>선두께<input type="number" id="lineht" value="10" min="1"></label>
+<br>
+<canvas id="myCanvas" style="background-color:aliceblue" width="800" height="500">
+</canvas>
+<script>
+let canvas, context;
+function init() {
+	canvas = document.getElementById("myCanvas");
+	context = canvas.getContext("2d");
+	
+	context.lineWidth = document.querySelector("#lineht").value; // 선 굵기를 현재 지정된 선 두께 값으로 설정
+	context.strokeStyle = document.querySelector("#linecolor").value; //선 색을 현재 지정된 선 색 값으로 설정
+    context.lineCap = "round" // 양 끝점 모양을 round cap으로 지정
+
+	// 마우스 리스너 등록. e는 MouseEvent 객체
+	canvas.addEventListener("mousemove", function (e) { move(e) }, false);
+	canvas.addEventListener("mousedown", function (e) { down(e) }, false);
+	canvas.addEventListener("mouseup", function (e) { up(e) }, false);
+	canvas.addEventListener("mouseout", function (e) { out(e) }, false);
+    document.querySelector("#linecolor").addEventListener("change", lcevent);
+    document.querySelector("#lineht").addEventListener("change", lhevent);
+}
+
+let startX=0, startY=0; // 마우스의 마지막 포인터 좌표
+let drawing=false;
+function draw(curX, curY) { 
+	context.beginPath();
+	context.moveTo(startX, startY);
+	context.lineTo(curX, curY);
+	context.stroke();
+}
+function down(e) { 
+	startX = e.offsetX; startY = e.offsetY;
+	drawing = true;
+}
+function up(e) { drawing = false; }
+function move(e) {
+	if(!drawing) return; // 마우스가 눌러지지 않았으면 리턴
+	let curX = e.offsetX, curY = e.offsetY;
+	draw(curX, curY);	
+	startX = curX; startY = curY;
+}
+function out(e) { drawing = false; }
+function lcevent() { context.strokeStyle = document.querySelector("#linecolor").value; } //선 색 변경
+function lhevent() { context.lineWidth = document.querySelector("#lineht").value; } //선 굵기 변경
+</script>
+</body>
+</html>

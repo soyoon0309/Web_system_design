@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.1.2</title>
+</head>
+<body>
+    <script>
+        var name = "전역변수";
+        function checkScope(){
+            var name = "지역 변수";
+            var name2 = "지역 변수2";
+            name3 = "전역 변수2";
+            document.write("<p>함수 안:"+name +"</p>") // 출력값 : 지역변수
+            document.write("<p>함수 밖2:"+name2 + "</p>"); // ERROR : 함수 내부에서 write 하도록 변경 변경 후 출력값 : 지역 변수
+        }
+        document.write("<p>함수 밖1:"+name + "</p>"); // 출력값 : 전역변수
+        checkScope();
+        // ERROR : name2는 지역변수이므로 함수 밖에서 write가 불가능함 (function 내부로 이동)
+        document.write("<p>함수 밖3:"+name3 + "</p>"); // 처음 실행 시 앞에있는 name2의 오류로 인해 write되지 않음. 오류 정정 후 출력값 : 전역 변수
+    </script>
+</body>
+</html>

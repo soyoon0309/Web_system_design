@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>09-3</title>
+</head>
+<body onload="init()">
+<h3>마우스를 누른 채 드래깅하여 그림 그려 보세요</h3>
+<hr>
+<label>도형 그리기
+    <input type="button" id="spcir" value="circle">
+    <input type="button" id="sprect" value="rect">
+    <input type="button" id="spline" value="자유곡선">
+</label>
+<label>채우기색<input type="color" id="fillcolor"></label>
+<label>선색<input type="color" id="linecolor"></label>
+<label>선두께<input type="number" id="lineht" value="10" min="1"></label>
+<br>
+<canvas id="myCanvas" style="background-color:aliceblue" width="800" height="500">
+</canvas>
+<script>
+let canvas, context;
+let shape = ""; // 선택된 도형의 모양
+let isDrawing = false; // 그리기 중인지 여부를 저장하는 변수
+let points = []; // 그림을 그리기 위한 점들의 배열
+
+function init() {
+	canvas = document.getElementById("myCanvas");
+	context = canvas.getContext("2d");
+
+	context.lineWidth = document.querySelector("#lineht").value;
+	context.strokeStyle = document.querySelector("#linecolor").value;
+	context.fillStyle = document.querySelector("#fillcolor").value;
+	context.lineCap = "round";
+
+	canvas.addEventListener("mousedown", function (e) { down(e) }, false);
+	canvas.addEventListener("mouseup", function (e) { up(e) }, false);
+	canvas.addEventListener("mousemove", function (e) { move(e) }, false);
+	canvas.addEventListener("mouseout", function (e) { out(e) }, false);
+
+	document.querySelector("#linecolor").addEventListener("change", lcevent);
+	document.querySelector("#fillcolor").addEventListener("change", fcevent);
+	document.querySelector("#lineht").addEventListener("change", lhevent);
+	document.querySelector("#spcir").addEventListener("click", spcevent);
+	document.querySelector("#sprect").addEventListener("click", sprevent);
+	document.querySelector("#spline").addEventListener("click", splevent);
+}
+
+function drawCircle(curX, curY) {
+	const radius = 50; // 원의 반지름을 50으로 고정
+	context.beginPath();
+	context.arc(curX, curY, radius, 0, 2 * Math.PI);
+	context.lineWidth = context.lineWidth;
+	context.strokeStyle = context.strokeStyle;
+	context.stroke();
+	context.fillStyle = context.fillStyle;
+	context.fill();
+}
+
+function drawRectangle(curX, curY) {
+	const width = 100; // 사각형의 너비를 100으로 고정
+	const height = 100; // 사각형의 높이를 100으로 고정
+	const x = curX - width / 2; // 중심점을 기준으로 사각형의 좌상단 모서리 좌표 계산
+	const y = curY - height / 2;
+	context.beginPath();
+	context.rect(x, y, width, height);
+	context.lineWidth = context.lineWidth;
+	context.strokeStyle = context.strokeStyle;
+	context.stroke();
+	context.fillStyle = context.fillStyle;
+	context.fill();
+}
+
+function drawFreeLine() {
+	context.lineWidth = context.lineWidth;
+	context.strokeStyle = context.strokeStyle;
+	context.lineJoin = "round";
+	context.lineCap = "round";
+
+	if (points.length < 2) return;
+
+	context.beginPath();
+	context.moveTo(points[0].x, points[0].y);
+
+	for (let i = 1; i < points.length; i++) {
+		context.lineTo(points[i].x, points[i].y);
+	}
+
+	context.stroke();
+}
+
+function down(e) {
+	const curX = e.offsetX;
+	const curY = e.offsetY;
+
+	if (shape === "circle") {
+		drawCircle(curX, curY);
+	} else if (shape === "rect") {
+		drawRectangle(curX, curY);
+	} else if (shape === "freeline") {
+		isDrawing = true;
+		points.push({ x: curX, y: curY });
+	}
+}
+
+function up() {
+	isDrawing = false;
+	points = [];
+}
+
+function move(e) {
+	if (!isDrawing) return;
+
+	const curX = e.offsetX;
+	const curY = e.offsetY;
+
+	if (shape === "freeline") {
+		points.push({ x: curX, y: curY });
+		drawFreeLine();
+	}
+}
+
+function out() {
+	isDrawing = false;
+	points = [];
+}
+
+function lcevent() { context.strokeStyle = document.querySelector("#linecolor").value; }
+
+function fcevent() { context.fillStyle = document.querySelector("#fillcolor").value; }
+
+function lhevent() { context.lineWidth = document.querySelector("#lineht").value; }
+
+function spcevent() { shape = "circle"; }
+
+function sprevent() { shape = "rect"; }
+
+function splevent() { shape = "freeline"; }
+</script>
+</body>
+</html>

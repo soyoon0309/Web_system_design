@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Web Programming</title>
+  <link rel="stylesheet" href="css/nodelist.css">
+</head>
+<body>
+  <div id="container">
+    <h1>To Do List</h1>
+    <p>해야 할 일을 기록해 보세요</p>
+    <p>할 일이 끝난 일은 선택하면 취소선이 그어지도록 합니다.</p>
+    <p>목록의 우측에 있는 X 버튼을 누르면 해당 항목이 삭제되도록 합니다.</p>
+    <form action="">
+      <input type="text" id="subject" autofocus>
+      <button onclick="newRegister(); return false;">추가</button>
+    </form>
+    <hr>  
+    <ul id="itemList"> </ul>  
+  </div>
+
+  <script>
+    function newRegister() {
+      var newItem = document.createElement("li");  // 요소 노드 추가 
+      var subject = document.querySelector("#subject");  // 폼의 텍스트 필드
+      var newText = document.createTextNode(subject.value);  // 텍스트 필드의 값을 텍스트 노드로 만들기
+      newItem.appendChild(newText);  // 텍스트 노드를 요소 노드의 자식 노드로 추가
+      
+      var deleteButton = document.createElement("text"); // 취소 버튼 생성
+      deleteButton.innerHTML = "x"; // 버튼 텍스트 설정
+      deleteButton.style.marginLeft = "100px";
+      deleteButton.addEventListener("click", function() {
+        this.parentNode.parentNode.removeChild(this.parentNode); // 부모 노드에서 삭제
+      });
+      newItem.appendChild(deleteButton); // 취소 버튼을 요소 노드의 자식 노드로 추가
+
+      var itemList = document.querySelector("#itemList");  // 웹 문서에서 부모 노드 가져오기 
+      itemList.insertBefore(newItem, itemList.childNodes[0]);  // 자식 노드 중 첫 번째 노드 앞에 추가
+
+      subject.value="";
+
+      var items = document.querySelectorAll("li");  // 모든 항목 가져오기
+      for(i=0; i<items.length; i++) {
+        items[i].addEventListener("click", function() {  // 항목 클릭했을 때 실행할 함수
+          this.style.textDecoration = "line-through"  // 취소선 생성
+        });
+      }
+    }
+  </script>
+</body>
+</html>

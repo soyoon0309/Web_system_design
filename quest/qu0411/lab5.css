@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap');
+/*sunflower light 300 webfont 사용*/
+
+body {
+    width: 800px;
+    height: 1300px;
+    margin: 20px auto;
+    font-family: 'Sunflower', sans-serif;
+} /*body 기본 사이즈 설정*/
+
+a {
+    text-decoration: none;
+} /*모든 a tag 밑줄 제거*/
+
+ul {
+    list-style: none;
+} /*모든 ul tag 불릿 제거*/
+
+#image {
+    margin-left: 10px;
+    margin-right: 10px;
+} /*id image 설정, 좌우 마진 10px씩*/
+
+#wrapper {
+    width: 800px;
+    height: 1300px;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr; /*가로 1:5:1*/
+    grid-template-rows: 0.5fr 2fr 2.8fr 0.1fr; 
+    /*세로 0.5:2:2.8:0.1
+    => raside는 아래를 비워두기 위해 center부분을 2칸으로 나눠 선언*/
+} /*css 그리드 레이아웃 사이즈 설정*/
+
+.boxheader {
+    margin: 10px;
+    border-radius: 3px;
+    background-color: bisque;
+    grid-column: 1/4;
+} /*header css design, css grid column 1번~4번, row 기본값*/
+
+#headtitle {
+    float: left;
+    margin-left: 15px;
+} /*header 내 div tag에 들어가는 id*/
+
+#headtitle h1::after {
+    content: url(bake.png);
+    margin-left: 10px;
+} /*header div tag h1 뒤에 bake 이미지 삽입*/
+
+.navi .submenu {
+    position: absolute;
+    width: 100px;
+    height: 110px;
+    padding-top: 1px;
+    padding-bottom: 5px;
+    background-color: rgba(222, 162, 119, 0.6);
+    text-align: center;
+    opacity: 0;
+    transition: all 0.6s ease-in-out;
+}
+
+.navi a:hover + .submenu {
+    opacity: 1;
+}
+
+.navi {
+    float: right;
+    padding-top: 70px;
+} /*header 내 nav tag에 들어가는 id*/
+
+.navi > ul > li {
+    float: left;
+    position: relative;
+    box-sizing: border-box;
+    padding: auto;
+    margin: 0px 30px;
+} /*header nav ul li*/
+
+.navi a:link, .navi a:visited {
+    display: block;
+    box-sizing: border-box;
+    width:100px;
+    color:rgb(70, 50, 5);
+    text-align: center;
+} /*nav tag 내의 a tag 기본값과 클릭 이후 기본값 설정*/
+
+.navi a:hover {
+    background-color: rgb(222, 162, 119);
+    color: black;
+} /*nav tag 내의 a tag에 커서를 올렸을 때 해당 a tag의 설정 변경값*/
+
+#sat1:target, #sat2:target, #sat3:target {
+    background-color: bisque;
+}
+
+.laside {
+    margin: 10px;
+    border-radius: 3px;
+    background-color: bisque;
+    grid-row: 2/4;
+} /*laside의 기본 배경 설정, css grid column 기본값, css grid row 2번 ~ 4번*/
+
+#signup label {
+    font-size: 13px;
+    width: 50px;
+} /*laside login form label 설정*/
+
+#signup > div {
+    margin: 10px;
+    margin-top: 30px;
+} /*login form submit button 제외*/
+
+#signup input[type=text], input[type=password] {
+    border: 1px solid rgb(213, 150, 104);;
+    border-radius: 3px;
+} /*input tag border 기본 설정*/
+
+.raside {
+    margin: 10px;
+    border-radius: 3px;
+    background-color: bisque;
+} /*raside 기본 설정*/
+
+#rat1, #rat2 {
+    background-color:antiquewhite;
+    border: 2px solid rgb(222, 162, 119);
+    border-radius: 10px;
+    margin: 10px;
+} /*raside 내 article 2개 기본 설정*/
+
+.content {
+    margin: 10px;
+    border-radius: 7px;
+    grid-row: 2/4;
+} /*section 기본값 설정, css grid column 기본값, css grid row 2번 ~ 4번*/
+
+#datetable {
+    margin-left: 20px;
+    margin-bottom: 10px;
+    border: 2px solid rgb(222, 162, 119);
+    border-collapse: collapse;
+} /*sat2 내에 있는 일정 table 설정, 중복되는 border가 있을 경우 합쳐서 한줄로*/
+
+#datetable td, #datetable tr, #datetable th{
+  border: 1px solid rgb(222, 162, 119);
+  text-align: center;
+} /*table 내의 row, col값 기본 설정*/
+
+#sat1, #sat2, #sat3 {
+    background-color:antiquewhite;
+    border: 3px solid rgb(222, 162, 119);
+    box-shadow: 2px 2px rgb(232, 148, 88);
+    margin-bottom: 15px;
+    border-radius: 10px;
+} /*section 내의 article 기본값 설정*/
+
+#sat1 ol {
+    position: relative;
+    font-size: 12px;
+}
+
+#sat3 ol {
+    position: relative;
+    font-size: 13px;
+}
+
+#source {
+    margin-left: 10px;
+    font-size: 0.1em;
+    color: gray;
+} /*출처 표시*/
+
+#sat1 > h4, #sat2 > h4, #sat3 > h4, #rat1 > h4, #rat2 > h4, footer p {
+    margin-left: 15px;
+} /*section article h4, raside article h4, footer p tag left margin 설정*/
+
+footer {
+    background-color: bisque;
+    margin: 10px;
+    border-radius: 3px;
+    grid-row: 4/5;
+    grid-column: 1/4;
+} /*footer 기본값 설정, css grid column 1번 ~ 4번, css grid row 4번 ~ 5번*/

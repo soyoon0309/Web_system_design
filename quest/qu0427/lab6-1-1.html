@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6.1.1</title>
+</head>
+<body>
+    <script>
+        var name = "전역변수";
+        function checkScope(){
+            var name = "지역 변수";
+            var name2 = "지역 변수2";
+            name3 = "전역 변수2";
+            document.write("<p>함수 안:"+name +"</p>")
+        }
+        document.write("<p>함수 밖1:"+name + "</p>"); //출력값 : 전역 변수
+        // 출력값 X, ERROR : 지역 변수 name2를 함수 외부에서 소환하여 ERROR 발생
+        // 출력값 X ERROR : 아직 checkScope()가 호출되지 않아 값이 정의되어있지 않은 상황
+        //두 명령을 지워 해결
+        checkScope();
+    </script>
+</body>
+</html>

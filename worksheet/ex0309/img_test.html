@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>표, 그림 추가 작업</title>
+</head>
+<body>
+    <h1>일주일 식단표</h1>
+    <img src="salad.jpg" alt="샐러드" width="90%" height="100">
+    <table border="1">
+        <caption>월수금 식단표</caption>
+        <thead>
+            <tr>
+                <th></th>
+                <th>월</th>
+                <th>수</th>
+                <th>금</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">아침</td>
+                <td colspan="3">
+                    <a href="detail.html">
+                    <img src="salad.jpg" width="300">
+                    </a>
+                </td>
+                <!--<td><img src="salad.jpg" width="100"></td>
+                <td><img src="salad.jpg" width="100"></td>-->
+            </tr>
+            <tr> 
+            <td colspan="3">아침 메뉴 설명</td>
+            <!--<td></td>
+            <td></td>--><!--colspan하고 빼지 않을 시 표에 표시된다-->
+            </tr>
+            <tr>
+                <td rowspan="2">점심</td>
+                <td><img src="salad.jpg" width="100"></td>
+                <td><img src="salad.jpg" width="100"></td>
+                <td><img src="salad.jpg" width="100"></td>
+            </tr>
+            <tr> 
+                <td>점심 메뉴 설명</td>
+                <td>점메설</td>
+                <td>점메설</td>
+            </tr>
+            <tr>
+                <td rowspan="2">저녁</td>
+                <td><img src="salad.jpg" width="100"></td>
+                <td colspan="2"><img src="salad.jpg" width="200"></td>
+                <!--<td><img src="salad.jpg" width="100"></td>-->
+            </tr>
+            <tr> 
+                <td>저녁 메뉴 설명</td>
+                <td colspan="2">저메설</td>
+                <!--<td></td>-->
+            </tr>   
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>체크</td>
+                <td>ok</td>
+                <td>fail</td>
+                <td>ok</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
