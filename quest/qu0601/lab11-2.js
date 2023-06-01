@@ -11,7 +11,7 @@ onmessage = function (e) { // 브라우저로부터 메시지 수신
 		if(timerID == null) 
 			return; // 타이머 작동하지 않으면 리턴
 		clearInterval(timerID);
-		close(); // 워커 태스크 종료. 더 이상 메시지 받지 않음
+		
 	}
     else {
         if(timerID == null){
@@ -23,6 +23,10 @@ onmessage = function (e) { // 브라우저로부터 메시지 수신
 }
 
 function myCallback() { // 1초 간격으로 호출
-	count--; // 카운트 값 증가
-	postMessage(count); // 카운트 값을 브라우저로 전송
+    if(count>0){
+        count--; // 카운트 값 증가
+        postMessage(count); // 카운트 값을 브라우저로 전송
+    }
+    else
+        close(); // 워커 태스크 종료. 더 이상 메시지 받지 않음
 }

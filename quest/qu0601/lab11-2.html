@@ -9,35 +9,44 @@
 <hr>
 <div>
     <span>첫 번째 타이머</span>
-    <input type="number" id="len" min="0" change="len()">
-    <button type="button" id="start" onclick="start()">start</button>
-    <button type="button" id="stop" onclick="stop()">stop</button>
-    <span id="timer">timer</span>
+    <input type="number" id="len1" min="0">
+    <button type="button" id="start1" onclick="start1()">start</button>
+    <span id="timer1">timer</span>
 </div>
 <div>
     <span>두 번째 타이머</span>
-    <input type="number" id="len" min="0">
-    <button type="button" id="start" onclick="start()">start</button>
-    <button type="button" id="stop" onclick="stop()">stop</button>
-    <span id="timer">timer</span>
+    <input type="number" id="len2" min="0">
+    <button type="button" id="start2" onclick="start2()">start</button>
+    <span id="timer2">timer</span>
 </div>
 <script>
-let addWorker = new Worker("lab11-2.js"); // 워커 태스크 생성
-addWorker.onmessage = function (e) {
-	// 텍스트 창에 결과 출력
-	document.getElementById("timer").innerHTML = e.data; 
-}
+    let addWorker1 = new Worker("lab11-2.js"); // 워커 태스크 생성
+    let addWorker2 = new Worker("lab11-2.js");
+    document.querySelector("#len1").addEventListener("change", len1);
+    document.querySelector("#len2").addEventListener("change", len2);
 
-function start() {
-	addWorker.postMessage("start");
-}
+    addWorker1.onmessage = function (e) {
+        // 텍스트 창에 결과 출력
+        document.getElementById("timer1").innerHTML = e.data; 
+    }
+    function start1() {
+        addWorker1.postMessage("start");
+    }
+    function len1() {
+        addWorker1.postMessage(document.querySelector("#len1").value)
+    }
 
-function stop() {
-	addWorker.postMessage("stop");
-}
-function len() {
-    addWorker.postMessage(document.querySelector("len").innerHTML)
-}
+
+    addWorker2.onmessage = function (e) {
+        document.getElementById("timer2").innerHTML = e.data;
+    }
+    function start2() {
+        addWorker2.postMessage("start");
+    }
+    function len2() {
+        addWorker2.postMessage(document.querySelector("#len2").value)
+    }
+
 </script>
 </body>
 </html>
