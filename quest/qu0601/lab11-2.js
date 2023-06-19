@@ -7,12 +7,6 @@ onmessage = function (e) { // 브라우저로부터 메시지 수신
 			return; // 타이머 작동중이면 리턴
 		timerID = setInterval(myCallback, 1000); // 1초 간격 myCallback() 호출
 	}
-	else if(e.data == "stop") {
-		if(timerID == null) 
-			return; // 타이머 작동하지 않으면 리턴
-		clearInterval(timerID);
-		
-	}
     else {
         if(timerID == null){
             count = e.data;
